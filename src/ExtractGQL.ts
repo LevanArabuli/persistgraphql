@@ -173,7 +173,7 @@ export class ExtractGQL {
   }
 
   // Creates an OutputMap from an array of GraphQL documents read as strings.
-  public createOutputMapFromString(docString: string): OutputMap {
+  public createOutputMapFromStringNew(docString: string): OutputMap {
     const doc = parse(docString);
     const docMap = separateOperations(doc);
 
@@ -217,7 +217,7 @@ export class ExtractGQL {
   public processInputPath(inputPath: string): Promise<OutputMap> {
     return new Promise<OutputMap>((resolve, reject) => {
       this.readInputPath(inputPath).then((docString: string) => {
-        resolve(this.createOutputMapFromString(docString));
+        resolve(this.createOutputMapFromStringNew(docString));
       }).catch((err) => {
         reject(err);
       });
